@@ -12,12 +12,16 @@ const App = () => {
     setItems((i) => [...i, newItem]);
   }
 
+  function handleDeleteItem(id) {
+    setItems((items) => items.filter((i) => i.id !== id));
+  }
+
   return (
     <>
       <div className="app">
         <Logo />
         <Form onAddItems={handleAddItems} />
-        <PackingList items={items} />
+        <PackingList items={items} onDeleteItem={handleDeleteItem} />
         <Stat />
       </div>
     </>
