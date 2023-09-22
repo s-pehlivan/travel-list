@@ -29,4 +29,4 @@ Project is _continuing_.
 
 
 ## Acknowledgements
--- This project is made for the Udemy course [The Ultimate React Course](https://www.udemy.com/course/the-ultimate-react-course/).  
+- This project is made for the Udemy course [The Ultimate React Course](https://www.udemy.com/course/the-ultimate-react-course/).  
