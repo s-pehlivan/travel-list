@@ -9,11 +9,26 @@ const App = () => {
   const [items, setItems] = useState([]);
 
   function handleAddItems(newItem) {
-    setItems((i) => [...i, newItem]);
+    setItems((items) => [...items, newItem]);
   }
 
   function handleDeleteItem(id) {
     setItems((items) => items.filter((i) => i.id !== id));
+  }
+
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+
+  function handleClear() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+    if (confirmed) setItems([]);
   }
 
   return (
@@ -21,8 +36,13 @@ const App = () => {
       <div className="app">
         <Logo />
         <Form onAddItems={handleAddItems} />
-        <PackingList items={items} onDeleteItem={handleDeleteItem} />
-        <Stat />
+        <PackingList
+          items={items}
+          onDeleteItem={handleDeleteItem}
+          onToggleItem={handleToggleItem}
+          onClear={handleClear}
+        />
+        <Stat items={items} />
       </div>
     </>
   );

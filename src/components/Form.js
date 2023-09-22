@@ -9,7 +9,12 @@ const Form = ({ onAddItems }) => {
     //validation for item value.
     if (!description) return;
 
-    const newItem = { description, quantity, packed: false, id: Date.now() };
+    const newItem = {
+      description: description,
+      quantity: quantity,
+      packed: false,
+      id: Date.now(),
+    };
     onAddItems(newItem);
 
     setDescription("");
